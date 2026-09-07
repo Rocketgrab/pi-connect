@@ -16,8 +16,8 @@ export default function PrintPage() {
           <h1 className="mt-2 text-[2rem] font-medium leading-tight">Print pack</h1>
           <p className="mt-3 max-w-2xl text-[1.08rem] leading-relaxed">
             Full pack: plan, every lead with next steps, then committees,
-            events and switchboards. Print or save as PDF. Contacted ticks from
-            this browser show on the list.
+            events and switchboards. Download the PDF to email, or print this
+            page. Contacted ticks from this browser show on the list.
           </p>
         </div>
         <PrintControls />

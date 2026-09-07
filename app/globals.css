@@ -60,24 +60,33 @@ body {
 }
 
 @media print {
+  /* Screen tokens are dark; print remaps them so Tailwind classes stay readable. */
+  :root {
+    --color-paper: #ffffff;
+    --color-paper-2: #f4f4f4;
+    --color-white: #ffffff;
+    --color-ink: #111111;
+    --color-ink-soft: #444444;
+    --color-line: #cccccc;
+    --color-navy: #0b3a66;
+    --color-navy-soft: #e6eef5;
+    --color-accent: #8a4b12;
+    --color-accent-soft: #f4eadc;
+    --color-green: #145c38;
+    --color-green-soft: #e6f3ec;
+    --color-gold: #6b5308;
+    --color-gold-soft: #f6efd6;
+  }
+
   html {
-    font-size: 12pt;
+    font-size: 11pt;
     color-scheme: light !important;
-    forced-color-adjust: none;
   }
 
-  /* The screen theme is dark; print always goes out black on white. */
-  *,
-  *::before,
-  *::after {
-    background: transparent !important;
-    color: #000 !important;
-    border-color: #999 !important;
-    box-shadow: none !important;
-  }
-
+  html,
   body {
     background: #fff !important;
+    color: #111 !important;
   }
 
   .no-print {
@@ -96,8 +105,10 @@ body {
   .print-card {
     break-inside: avoid;
     border: 1px solid #ccc;
-    padding: 10px 12px;
-    margin-bottom: 8px;
+    padding: 8px 10px;
+    margin-bottom: 6px;
+    background: #fff !important;
+    color: #111 !important;
   }
 
   .contacted-box {

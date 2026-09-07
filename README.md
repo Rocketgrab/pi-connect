@@ -34,8 +34,8 @@ Actions workflow deploys that folder to GitHub Pages on every push to `main`.
 3. Merge or push this branch to `main`.
 4. The live URL will be `https://<your-github-username>.github.io/<repo-name>/`.
 
-Until that is live, send the print pack: open `/print`, choose **Print or save PDF**,
-and email the PDF.
+Until that is live, send `public/sydney-pi-checklist.pdf`, or open `/print/` and
+choose **Download PDF**.
 
 ## Notes
 
