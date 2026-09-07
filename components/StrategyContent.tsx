@@ -56,8 +56,8 @@ export function StrategyContent({ forPrint = false }: { forPrint?: boolean }) {
           Sydney PI — to-do
         </h1>
         <p className="mt-4 max-w-3xl text-[1.12rem] leading-relaxed text-ink">
-          Next 90 days. Claims managers instruct. Brokers open the door. Names
-          ranked by return on an hour. Tick Contacted as each one is done.
+          Next 90 days: Solicit claims managers who instruct. Also target
+          Brokers to open the door.
         </p>
       </section>
 
