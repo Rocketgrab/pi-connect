@@ -2,6 +2,7 @@
 
 import { ContactsContent } from "@/components/ContactsContent";
 import { LeadsContent } from "@/components/LeadsContent";
+import { PrintControls } from "@/components/PrintControls";
 import { StrategyContent } from "@/components/StrategyContent";
 
 export default function PrintPage() {
@@ -19,13 +20,7 @@ export default function PrintPage() {
             this browser show on the list.
           </p>
         </div>
-        <button
-          type="button"
-          onClick={() => window.print()}
-          className="rounded-md bg-ink px-5 py-3 text-[1.08rem] text-paper"
-        >
-          Print or save PDF
-        </button>
+        <PrintControls />
       </div>
 
       <StrategyContent forPrint />

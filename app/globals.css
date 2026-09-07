@@ -62,7 +62,8 @@ body {
 @media print {
   html {
     font-size: 12pt;
-    color-scheme: light;
+    color-scheme: light !important;
+    forced-color-adjust: none;
   }
 
   /* The screen theme is dark; print always goes out black on white. */
