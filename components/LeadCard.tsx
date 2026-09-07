@@ -1,4 +1,5 @@
 import type { Lead } from "@/data/types";
+import type { RankedLead } from "@/lib/ranking";
 import { ContactedCheckbox } from "@/components/ContactedCheckbox";
 
 const typeStyles: Record<Lead["type"], string> = {
@@ -9,30 +10,44 @@ const typeStyles: Record<Lead["type"], string> = {
   Event: "bg-gold-soft text-gold",
 };
 
-export function LeadCard({ lead }: { lead: Lead }) {
+export function LeadCard({ lead }: { lead: RankedLead }) {
   return (
-    <article className="rounded-xl border border-line bg-white p-5 shadow-sm sm:p-6">
+    <article className="rounded-xl border border-line bg-white p-5 sm:p-6">
       <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
-        <div className="min-w-0">
-          <div className="mb-2 flex flex-wrap items-center gap-2">
-            <span className="rounded-full bg-ink px-2.5 py-0.5 text-[0.82rem] font-medium text-paper">
-              P{lead.priority}
-            </span>
-            <span
-              className={`rounded-full px-2.5 py-0.5 text-[0.82rem] font-medium ${typeStyles[lead.type]}`}
-            >
-              {lead.type}
-            </span>
+        <div className="flex min-w-0 gap-4">
+          <div className="shrink-0 text-right">
+            <p className="text-[0.78rem] uppercase tracking-[0.1em] text-ink-soft">Rank</p>
+            <p className="text-[1.6rem] font-medium leading-none text-accent">{lead.rank}</p>
           </div>
-          <h2 className="text-[1.28rem] font-medium leading-snug text-ink">
-            {lead.person}
-          </h2>
-          <p className="mt-1 text-[1.05rem] text-ink">{lead.organisation}</p>
-          <p className="mt-0.5 text-[1rem] text-ink-soft">{lead.role}</p>
+          <div className="min-w-0">
+            <div className="mb-2 flex flex-wrap items-center gap-2">
+              <span className="rounded-full bg-ink px-2.5 py-0.5 text-[0.82rem] font-medium text-paper">
+                {lead.tier.label}
+              </span>
+              <span
+                className={`rounded-full px-2.5 py-0.5 text-[0.82rem] font-medium ${typeStyles[lead.type]}`}
+              >
+                {lead.type}
+              </span>
+            </div>
+            <h2 className="text-[1.28rem] font-medium leading-snug text-ink">
+              {lead.person}
+            </h2>
+            <p className="mt-1 text-[1.05rem] text-ink">{lead.organisation}</p>
+            <p className="mt-0.5 text-[1rem] text-ink-soft">{lead.role}</p>
+          </div>
         </div>
         <div className="shrink-0 rounded-lg border border-line bg-paper px-3 py-2">
           <ContactedCheckbox id={lead.id} />
         </div>
+      </div>
+      <div className="mt-4 flex items-center gap-3">
+        <div className="impact-bar flex-1" aria-hidden>
+          <span style={{ width: `${lead.impact}%` }} />
+        </div>
+        <p className="shrink-0 text-[0.92rem] text-ink-soft">
+          Impact {lead.impact}/100
+        </p>
       </div>
       <p className="mt-4 text-[0.98rem] uppercase tracking-[0.08em] text-ink-soft">
         {lead.focus}
@@ -52,7 +67,7 @@ export function LeadCard({ lead }: { lead: Lead }) {
           <div>
             <dt className="text-ink-soft">Email</dt>
             <dd>
-              <a className="underline decoration-line underline-offset-2" href={`mailto:${lead.email}`}>
+              <a className="break-all underline decoration-line underline-offset-2" href={`mailto:${lead.email}`}>
                 {lead.email}
               </a>
             </dd>

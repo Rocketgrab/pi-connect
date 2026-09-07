@@ -1,7 +1,10 @@
 import Link from "next/link";
-import { events, leads } from "@/data/leads";
+import { events } from "@/data/leads";
+import { ContactedCheckbox } from "@/components/ContactedCheckbox";
+import { rankedLeads } from "@/lib/ranking";
 
-const p1 = leads.filter((lead) => lead.priority === 1).length;
+const instructNow = rankedLeads.filter((lead) => lead.tier.key === "instruct").length;
+const topTen = rankedLeads.slice(0, 10);
 
 export default function SummaryPage() {
   return (
@@ -25,8 +28,8 @@ export default function SummaryPage() {
       <section className="grid gap-4 sm:grid-cols-3">
         <div className="rounded-xl border border-line bg-white p-5">
           <p className="text-[0.9rem] uppercase tracking-[0.1em] text-ink-soft">Leads</p>
-          <p className="mt-1 text-[2rem] font-medium">{leads.length}</p>
-          <p className="text-[1.02rem] text-ink-soft">{p1} marked priority one</p>
+          <p className="mt-1 text-[2rem] font-medium">{rankedLeads.length}</p>
+          <p className="text-[1.02rem] text-ink-soft">{instructNow} instruct counsel now</p>
         </div>
         <div className="rounded-xl border border-line bg-white p-5">
           <p className="text-[0.9rem] uppercase tracking-[0.1em] text-ink-soft">This week</p>
@@ -93,36 +96,77 @@ export default function SummaryPage() {
         </ol>
       </section>
 
-      <section className="space-y-3">
-        <h2 className="text-[1.5rem] font-medium">What the original report got wrong</h2>
+      <section className="space-y-4">
+        <div className="flex flex-wrap items-baseline justify-between gap-2">
+          <h2 className="text-[1.5rem] font-medium">Top ten by impact</h2>
+          <Link href="/leads" className="text-[1.02rem] underline decoration-line underline-offset-2">
+            Full ranked list
+          </Link>
+        </div>
         <p className="max-w-3xl text-[1.08rem] leading-relaxed text-ink">
-          An earlier long-form report was useful on market structure (MGAs,
-          Pafburn, broker channel) and thin on a working contact list. Independent
-          checks in September 2026 found:
+          Impact is a 0–100 score for return on an hour of your time: does the
+          person appoint defence counsel, how many PI files do they control, and
+          can you reach them from Sydney this quarter. Claims heads at MGAs and
+          financial-lines insurers score highest; association staff and
+          national executives score lowest.
+        </p>
+        <ol className="overflow-hidden rounded-xl border border-line bg-white">
+          {topTen.map((lead) => (
+            <li
+              key={lead.id}
+              className="flex items-start gap-4 border-t border-line p-4 first:border-t-0 sm:items-center"
+            >
+              <span className="w-8 shrink-0 text-[1.3rem] font-medium text-accent">
+                {lead.rank}
+              </span>
+              <div className="min-w-0 flex-1">
+                <p className="text-[1.1rem] font-medium leading-snug">
+                  {lead.person}{" "}
+                  <span className="font-normal text-ink-soft">· {lead.organisation}</span>
+                </p>
+                <p className="text-[0.98rem] text-ink-soft">{lead.role}</p>
+              </div>
+              <span className="hidden shrink-0 text-[0.95rem] text-ink-soft sm:block">
+                {lead.impact}
+              </span>
+              <div className="shrink-0">
+                <ContactedCheckbox id={lead.id} compact />
+              </div>
+            </li>
+          ))}
+        </ol>
+      </section>
+
+      <section className="space-y-3">
+        <h2 className="text-[1.5rem] font-medium">Before you email: who moved</h2>
+        <p className="max-w-3xl text-[1.08rem] leading-relaxed text-ink">
+          Names verified against public sources in September 2026. These are
+          the ones most likely to be wrong in an older address book.
         </p>
         <ul className="list-disc space-y-2 pl-6 text-[1.08rem] leading-relaxed">
           <li>
-            Kosta Biris left HDI as Head of Claims in December 2024. Do not email
-            him there. Use Sonja Schoenborn (Specialty financial lines) and
-            Vikash Raman (HDI Global liability / financial lines).
+            HDI: Kosta Biris left as Head of Claims in December 2024. Use Sonja
+            Schoenborn (Specialty financial lines) and Vikash Raman (HDI Global
+            liability / financial lines).
           </li>
           <li>
-            Kerryn Symes at DUAL is NSW Manager, not a claims appointer. Daniel
-            Brown is Head of Financial Lines. Georgina Dalley runs financial-lines
-            claims.
+            DUAL: Eleanor Bunting and Georgina Dalley appoint on claims. Daniel
+            Brown is Head of Financial Lines. Kerryn Symes is NSW Manager, a
+            relationship contact rather than a claims appointer.
           </li>
           <li>
-            Aisling Hegarty is Arch’s national PI lead, based in Melbourne
-            (February 2026). Sydney claims sit with Ananya Tiwari.
+            Arch: Aisling Hegarty is the national PI underwriting lead, based in
+            Melbourne since February 2026. Sydney claims sit with Ananya Tiwari.
           </li>
           <li>
-            Keystone PI is run by Jessica Kettle (jessica@ksua.com.au). King and
-            Willmott remain directors; the agency is Melbourne-based with a
-            national book.
+            Keystone: Jessica Kettle runs PI (jessica@ksua.com.au). John King
+            and Jon Willmott remain directors; the book is national from
+            Melbourne.
           </li>
           <li>
-            QBE, Chubb, Liberty, Berkley, AIG, Markel, SURA and 360 were
-            underweighted. They instruct real PI files in Sydney.
+            Lawcover’s primary solicitors’ panel is closed to new firms; the
+            open door is excess / top-up markets and the law-practice managers
+            who buy them.
           </li>
         </ul>
       </section>

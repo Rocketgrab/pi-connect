@@ -1,13 +1,12 @@
 "use client";
 
-import { events, leads, organisations } from "@/data/leads";
+import { events, organisations } from "@/data/leads";
 import { useContacted } from "@/lib/contacted";
+import { rankedLeads, tiers } from "@/lib/ranking";
 
 export default function PrintPage() {
   const { ready, isContacted } = useContacted();
-  const sorted = [...leads].sort(
-    (a, b) => a.priority - b.priority || a.organisation.localeCompare(b.organisation),
-  );
+  const sorted = rankedLeads;
 
   return (
     <div>
@@ -55,17 +54,31 @@ export default function PrintPage() {
           <li>Pitch construction PI after Pafburn / DBP Act, plus s 5O and ACL s 18.</li>
           <li>Speak at APIG NSW, exhibit at UAC, teach CPD. Lawcover primary panel later; chase top-up now.</li>
         </ol>
-        <h3 className="mt-6 text-[1.25rem] font-medium">Corrections to older notes</h3>
+        <h3 className="mt-6 text-[1.25rem] font-medium">Before you email: who moved</h3>
         <ul className="mt-2 list-disc space-y-2 pl-6 text-[1.08rem] leading-relaxed">
-          <li>Do not contact Kosta Biris at HDI (left December 2024).</li>
-          <li>DUAL claims: Eleanor Bunting and Georgina Dalley. Kerryn Symes is NSW Manager.</li>
-          <li>Arch PI underwriting lead Aisling Hegarty is Melbourne-based.</li>
+          <li>HDI: Kosta Biris left as Head of Claims December 2024. Use Sonja Schoenborn and Vikash Raman.</li>
+          <li>DUAL claims: Eleanor Bunting and Georgina Dalley. Kerryn Symes is NSW Manager, not a claims appointer.</li>
+          <li>Arch: Aisling Hegarty (PI underwriting) is Melbourne-based; Sydney claims sit with Ananya Tiwari.</li>
           <li>Keystone PI contact is Jessica Kettle, jessica@ksua.com.au.</li>
+          <li>Lawcover primary panel is closed; chase excess / top-up markets.</li>
+        </ul>
+        <h3 className="mt-6 text-[1.25rem] font-medium">How the list is ranked</h3>
+        <p className="mt-2 text-[1.08rem] leading-relaxed">
+          Each name has an impact score out of 100: does the person appoint
+          defence counsel, how many PI files do they control, and how reachable
+          are they from Sydney this quarter. The checklist runs highest first.
+        </p>
+        <ul className="mt-2 list-disc space-y-1 pl-6 text-[1.08rem] leading-relaxed">
+          {tiers.map((tier) => (
+            <li key={tier.key}>
+              <span className="font-medium">{tier.label}</span> ({tier.min}+): {tier.blurb}
+            </li>
+          ))}
         </ul>
       </section>
 
       <section className="print-break mt-10">
-        <h2 className="text-[1.45rem] font-medium">Lead checklist</h2>
+        <h2 className="text-[1.45rem] font-medium">Lead checklist, ranked by impact</h2>
         <p className="mt-1 text-[1rem] text-ink-soft">
           {sorted.length} names · tick contacted · leave a note in the margin
         </p>
@@ -82,10 +95,10 @@ export default function PrintPage() {
                 />
                 <div className="min-w-0">
                   <p className="font-medium">
-                    P{lead.priority} · {lead.person} · {lead.organisation}
+                    {lead.rank}. {lead.person} · {lead.organisation}
                   </p>
                   <p className="text-[0.98rem] text-ink-soft">
-                    {lead.role} · {lead.type} · {lead.focus}
+                    Impact {lead.impact} · {lead.tier.label} · {lead.role} · {lead.type} · {lead.focus}
                   </p>
                   <p className="mt-1 text-[1rem] leading-snug">{lead.why}</p>
                   <p className="mt-1 text-[0.98rem]">

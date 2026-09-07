@@ -1,14 +1,17 @@
 export type LeadType = "Insurer" | "MGA" | "Broker" | "Association" | "Event";
 
-export type Priority = 1 | 2 | 3;
-
 export type Lead = {
   id: string;
   organisation: string;
   person: string;
   role: string;
   type: LeadType;
-  priority: Priority;
+  /**
+   * Expected return on effort, 0–100. Weighs how directly the person appoints
+   * defence counsel, the volume and value of PI files they control, and how
+   * reachable they are from Sydney. Higher sorts higher.
+   */
+  impact: number;
   focus: string;
   why: string;
   approach?: string;
