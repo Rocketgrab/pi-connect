@@ -48,9 +48,9 @@ export default function PrintPage() {
         </p>
         <h3 className="mt-6 text-[1.25rem] font-medium">Strategy</h3>
         <ol className="mt-2 list-decimal space-y-2 pl-6 text-[1.08rem] leading-relaxed">
-          <li>Meet claims appointers at DUAL, Arch, HDI, Chubb, Liberty, QBE, Berkley, SURA, ProRisk and 360.</li>
-          <li>Work MGAs and Lloyd’s coverholders; they appoint their own counsel.</li>
-          <li>Build broker advocacy relationships at GSA, Aon, Marsh, Gallagher, WTW and Tank.</li>
+          <li>Meet claims appointers at DUAL, Arch, HDI, Chubb, Liberty, QBE, Berkley, AXA XL, SURA, ProRisk and 360. Get in early with Berkshire Hathaway Specialty’s new Sydney PI claims team.</li>
+          <li>Work MGAs and Lloyd’s coverholders (Newline, Keystone, MECON, High Street); they appoint their own counsel.</li>
+          <li>Build broker advocacy relationships at GSA, Gallagher, Bellrock, Aon, Marsh, WTW, BMS and Tank.</li>
           <li>Pitch construction PI after Pafburn / DBP Act, plus s 5O and ACL s 18.</li>
           <li>Speak at APIG NSW, exhibit at UAC, teach CPD. Lawcover primary panel later; chase top-up now.</li>
         </ol>

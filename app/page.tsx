@@ -63,15 +63,15 @@ export default function SummaryPage() {
           {[
             {
               title: "Instructing claims people, not brand marketing",
-              body: "Panel work comes from heads of claims and financial-lines team leaders. Underwriters matter for wordings and being known before a large reserve is set. Start with Eleanor Bunting and Georgina Dalley (DUAL), Ananya Tiwari (Arch), Sonja Schoenborn (HDI Specialty), Ross Whalebelly / Madlin Tzortzis / Gabrielle Malouf (Chubb), Alison Kerr and Stephanie Morrison (Liberty), Ilona Horvath (QBE), Gareth Edwards (Berkley), Chloe Thomas (ProRisk), Yasa Lovell (SURA) and Tom Hatton (360).",
+              body: "Panel work comes from heads of claims and financial-lines team leaders. Underwriters matter for wordings and being known before a large reserve is set. Start with Eleanor Bunting and Georgina Dalley (DUAL), Ananya Tiwari (Arch), Sonja Schoenborn (HDI Specialty), Ross Whalebelly / Madlin Tzortzis / Gabrielle Malouf (Chubb), Alison Kerr and Stephanie Morrison (Liberty), Ilona Horvath (QBE), Gareth Edwards (Berkley), Julie Morgan (AXA XL), Chloe Thomas (ProRisk), Yasa Lovell (SURA) and Tom Hatton (360). Berkshire Hathaway Specialty is building a new Sydney PI claims team in 2026 and has not settled its panel; get in early.",
             },
             {
               title: "Treat MGAs as the growth channel",
-              body: "Domestic insurers have tightened appetite. A large share of SME and mid-market PI now sits with Lloyd’s coverholders and managing general agents who appoint their own lawyers. DUAL, SURA, Keystone, ProRisk, 360, MECON and High Street are more open than a two-year QBE panel tender. Join UAC as a business-services member and exhibit at the next Sydney Market Exchange.",
+              body: "Domestic insurers have tightened appetite. A large share of SME and mid-market PI now sits with Lloyd’s coverholders and managing general agents who appoint their own lawyers. DUAL, SURA, Keystone, ProRisk, 360, MECON, High Street and Newline (Lloyd’s 1218, new Sydney branch) are more open than a two-year QBE panel tender. Join UAC as a business-services member and exhibit at the next Sydney Market Exchange.",
             },
             {
               title: "Use brokers before the writ arrives",
-              body: "When an engineer or adviser is served, they call the broker first. Brokers notify, fight coverage, and often name preferred counsel. Priority brokers: Ryan Neary (GSA), Wendy Ford and Julie Hamilton (Aon), Robert Krleski (Marsh), Dennis Dalati and Brigid Allen (Gallagher), Sarah McPherson (WTW), Tank Insurance in Pyrmont, plus NIBA NSW committee brokers inside Steadfast, PSC, Howden and Lockton.",
+              body: "When an engineer or adviser is served, they call the broker first. Brokers notify, fight coverage, and often name preferred counsel. Priority brokers: Ryan Neary (GSA), Brigid Allen and Dennis Dalati (Gallagher), Joe Hershewe (Bellrock, a PI broker with its own claims team), Wendy Ford and Julie Hamilton (Aon), Robert Krleski (Marsh), Sarah McPherson (WTW), Tank Insurance in Pyrmont, plus NIBA NSW committee brokers inside Steadfast, PSC, Howden and Lockton.",
             },
             {
               title: "Lead with construction PI after Pafburn",
@@ -200,9 +200,11 @@ export default function SummaryPage() {
               <tr className="border-t border-line">
                 <td className="px-4 py-3 align-top font-medium">October</td>
                 <td className="px-4 py-3">
-                  NIBA Convention 18–20 October on the Gold Coast if budget
-                  allows. Otherwise a Sydney table at the next NIBA NSW lunch
-                  via Adam Hines’ committee.
+                  AILA National Conference in Adelaide 14–16 October: the
+                  claims heads on this list will be there, so book coffees
+                  before you fly. NIBA Convention 18–20 October on the Gold
+                  Coast only if budget allows; otherwise a Sydney table at the
+                  next NIBA NSW lunch via Adam Hines’ committee.
                 </td>
               </tr>
               <tr className="border-t border-line">
