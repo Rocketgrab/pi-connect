@@ -1,6 +1,8 @@
 import type { Lead } from "@/data/types";
 import type { RankedLead } from "@/lib/ranking";
 import { ContactedCheckbox } from "@/components/ContactedCheckbox";
+import { Expand } from "@/components/Expand";
+import { typeLabel } from "@/lib/acronyms";
 
 const typeStyles: Record<Lead["type"], string> = {
   Insurer: "bg-navy-soft text-navy",
@@ -12,7 +14,7 @@ const typeStyles: Record<Lead["type"], string> = {
 
 export function LeadCard({ lead }: { lead: RankedLead }) {
   return (
-    <article className="rounded-xl border border-line bg-white p-5 sm:p-6">
+    <article className="rounded-xl border border-line bg-white p-5 sm:p-6 print-card">
       <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
         <div className="flex min-w-0 gap-4">
           <div className="shrink-0 text-right">
@@ -27,14 +29,18 @@ export function LeadCard({ lead }: { lead: RankedLead }) {
               <span
                 className={`rounded-full px-2.5 py-0.5 text-[0.82rem] font-medium ${typeStyles[lead.type]}`}
               >
-                {lead.type}
+                {typeLabel(lead.type)}
               </span>
             </div>
             <h2 className="text-[1.28rem] font-medium leading-snug text-ink">
               {lead.person}
             </h2>
-            <p className="mt-1 text-[1.05rem] text-ink">{lead.organisation}</p>
-            <p className="mt-0.5 text-[1rem] text-ink-soft">{lead.role}</p>
+            <p className="mt-1 text-[1.05rem] text-ink">
+              <Expand>{lead.organisation}</Expand>
+            </p>
+            <p className="mt-0.5 text-[1rem] text-ink-soft">
+              <Expand>{lead.role}</Expand>
+            </p>
           </div>
         </div>
         <div className="shrink-0 rounded-lg border border-line bg-paper px-3 py-2">
@@ -50,17 +56,21 @@ export function LeadCard({ lead }: { lead: RankedLead }) {
         </p>
       </div>
       <p className="mt-4 text-[0.98rem] uppercase tracking-[0.08em] text-ink-soft">
-        {lead.focus}
+        <Expand>{lead.focus}</Expand>
       </p>
-      <p className="mt-3 text-[1.05rem] leading-relaxed text-ink">{lead.why}</p>
+      <p className="mt-3 text-[1.05rem] leading-relaxed text-ink">
+        <Expand>{lead.why}</Expand>
+      </p>
       {lead.approach ? (
         <p className="mt-3 text-[1.05rem] leading-relaxed text-ink">
-          <span className="font-medium">Approach. </span>
-          {lead.approach}
+          <span className="font-medium">What I’ll do. </span>
+          <Expand>{lead.approach}</Expand>
         </p>
       ) : null}
       {lead.note ? (
-        <p className="mt-3 text-[1rem] leading-relaxed text-accent">{lead.note}</p>
+        <p className="mt-3 text-[1rem] leading-relaxed text-accent">
+          <Expand>{lead.note}</Expand>
+        </p>
       ) : null}
       <dl className="mt-4 grid gap-2 text-[1.02rem] text-ink sm:grid-cols-2">
         {lead.email ? (

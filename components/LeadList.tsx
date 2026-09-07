@@ -4,6 +4,7 @@ import { useMemo, useState } from "react";
 import type { LeadType } from "@/data/types";
 import { LeadCard } from "@/components/LeadCard";
 import { rankedLeads, tiers, type TierKey } from "@/lib/ranking";
+import { typeLabel } from "@/lib/acronyms";
 import { useContacted } from "@/lib/contacted";
 
 const types: Array<"All" | LeadType> = ["All", "Insurer", "MGA", "Broker", "Association"];
@@ -11,7 +12,7 @@ const types: Array<"All" | LeadType> = ["All", "Insurer", "MGA", "Broker", "Asso
 const selectClass =
   "w-full rounded-md border border-line bg-paper px-3 py-3 text-[1.08rem] text-ink outline-none focus:border-accent";
 
-export function LeadList() {
+export function LeadList({ hideFilters = false }: { hideFilters?: boolean }) {
   const { ready, isContacted } = useContacted();
   const [query, setQuery] = useState("");
   const [type, setType] = useState<"All" | LeadType>("All");
@@ -19,6 +20,7 @@ export function LeadList() {
   const [status, setStatus] = useState<"All" | "Open" | "Contacted">("All");
 
   const filtered = useMemo(() => {
+    if (hideFilters) return rankedLeads;
     const q = query.trim().toLowerCase();
     return rankedLeads
       .filter((lead) => (type === "All" ? true : lead.type === type))
@@ -42,19 +44,20 @@ export function LeadList() {
           .toLowerCase();
         return hay.includes(q);
       });
-  }, [query, type, tier, status, ready, isContacted]);
+  }, [hideFilters, query, type, tier, status, ready, isContacted]);
 
   const contactedOnPage = filtered.filter((lead) => ready && isContacted(lead.id)).length;
 
   return (
     <div>
-      <div className="rounded-xl border border-line bg-white p-4 sm:p-5">
+      {hideFilters ? null : (
+      <div className="rounded-xl border border-line bg-white p-4 sm:p-5 no-print">
         <label className="block text-[1.02rem]">
           <span className="mb-1 block text-ink-soft">Search</span>
           <input
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder="Name, firm, PI, claims…"
+            placeholder="Name, firm, professional indemnity, claims…"
             className={selectClass}
           />
         </label>
@@ -68,7 +71,7 @@ export function LeadList() {
             >
               {types.map((item) => (
                 <option key={item} value={item}>
-                  {item}
+                  {typeLabel(item)}
                 </option>
               ))}
             </select>
@@ -102,17 +105,18 @@ export function LeadList() {
           </label>
         </div>
         <p className="mt-4 text-[1.02rem] text-ink-soft">
-          Showing {filtered.length} of {rankedLeads.length} leads, highest impact first
+          Showing {filtered.length} of {rankedLeads.length} — I ranked highest impact first
           {ready ? ` · ${contactedOnPage} ticked contacted on this view` : null}
         </p>
       </div>
-      <div className="mt-5 grid gap-4">
+      )}
+      <div className={`${hideFilters ? "" : "mt-5 "}grid gap-4`}>
         {filtered.map((lead) => (
           <LeadCard key={lead.id} lead={lead} />
         ))}
         {filtered.length === 0 ? (
           <p className="rounded-xl border border-dashed border-line bg-white p-8 text-center text-[1.08rem] text-ink-soft">
-            No leads match those filters.
+            Nothing matches. I’ll clear a filter.
           </p>
         ) : null}
       </div>

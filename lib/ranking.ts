@@ -15,25 +15,25 @@ export const tiers: Tier[] = [
     key: "instruct",
     label: "Instructs now",
     min: 80,
-    blurb: "Appoints defence counsel on PI files this quarter. Contact first.",
+    blurb: "They appoint defence counsel on PI files this quarter. I contact these first.",
   },
   {
     key: "strong",
     label: "Strong",
     min: 60,
-    blurb: "Controls or influences a real book of Sydney PI work. Next 90 days.",
+    blurb: "A real book of Sydney PI. I’ll get to them in the next 90 days.",
   },
   {
     key: "meeting",
     label: "Worth a meeting",
     min: 40,
-    blurb: "Useful door or referrer, indirect instructions.",
+    blurb: "Useful door or referrer. Indirect instructions — still worth my time.",
   },
   {
     key: "warm",
     label: "Keep warm",
     min: 0,
-    blurb: "Low direct return. Newsletter, event hello, no dedicated pitch.",
+    blurb: "Low direct return. Newsletter and event hellos, no dedicated pitch from me.",
   },
 ];
 
