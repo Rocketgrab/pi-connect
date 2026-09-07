@@ -10,17 +10,15 @@ export function LeadsContent({
   return (
     <div>
       <p className="text-[0.85rem] uppercase tracking-[0.14em] text-accent">
-        {rankedLeads.length} people and desks, ranked by what they’re worth to me
+        {rankedLeads.length} people and desks, ranked by impact
       </p>
       <h1 className="mt-2 text-[2rem] font-medium leading-tight sm:text-[2.2rem]">
-        My lead list
+        Lead list
       </h1>
       <p className="mt-3 max-w-3xl text-[1.1rem] leading-relaxed text-ink">
-        I work from the top. Rank 1 is the best return on an hour of my time:
-        someone who appoints defence counsel on <Expand>PI</Expand> files, in
-        Sydney, and is reachable now. I’ll tick{" "}
-        <span className="font-medium">Contacted</span> as I go; it stays in this
-        browser.
+        Work from the top. Rank 1 appoints defence counsel on <Expand>PI</Expand>{" "}
+        files, in Sydney, reachable now. Tick{" "}
+        <span className="font-medium">Contacted</span> as each is done.
       </p>
       <dl className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
         {tiers.map((tier) => {

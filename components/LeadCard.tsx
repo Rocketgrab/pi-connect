@@ -63,7 +63,7 @@ export function LeadCard({ lead }: { lead: RankedLead }) {
       </p>
       {lead.approach ? (
         <p className="mt-3 text-[1.05rem] leading-relaxed text-ink">
-          <span className="font-medium">What I’ll do. </span>
+          <span className="font-medium">Next step. </span>
           <Expand>{lead.approach}</Expand>
         </p>
       ) : null}

@@ -10,13 +10,12 @@ export function ContactsContent() {
         Switchboards, people, committees
       </p>
       <h1 className="mt-2 text-[2rem] font-medium leading-tight sm:text-[2.2rem]">
-        Who I call
+        Contacts
       </h1>
       <p className="mt-3 max-w-3xl text-[1.1rem] leading-relaxed text-ink">
-        I’ve only put a direct email here where it sits on a public claims
-        sheet, team page or association site. Where it isn’t published, I’ll
-        use the switchboard and ask for the claims or <Expand>PI</Expand> lead
-        by title.
+        Direct emails only where they sit on a public claims sheet, team page
+        or association site. Otherwise: switchboard, ask for the claims or{" "}
+        <Expand>PI</Expand> lead by title.
       </p>
 
       <section className="mt-10">

@@ -5,10 +5,10 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 
 const links = [
-  { href: "/", label: "My plan" },
-  { href: "/leads", label: "My leads" },
-  { href: "/contacts", label: "Who I call" },
-  { href: "/print", label: "Print pack" },
+  { href: "/", label: "Plan" },
+  { href: "/leads", label: "Leads" },
+  { href: "/contacts", label: "Contacts" },
+  { href: "/print", label: "Print" },
 ];
 
 export function SiteHeader() {
@@ -23,7 +23,7 @@ export function SiteHeader() {
             Sydney · Professional indemnity
           </p>
           <p className="truncate text-[1.25rem] font-medium text-ink">
-            My BD notes
+            BD checklist
           </p>
         </Link>
         <button

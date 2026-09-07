@@ -105,7 +105,7 @@ export function LeadList({ hideFilters = false }: { hideFilters?: boolean }) {
           </label>
         </div>
         <p className="mt-4 text-[1.02rem] text-ink-soft">
-          Showing {filtered.length} of {rankedLeads.length} — I ranked highest impact first
+          Showing {filtered.length} of {rankedLeads.length}, highest impact first
           {ready ? ` · ${contactedOnPage} ticked contacted on this view` : null}
         </p>
       </div>
@@ -116,7 +116,7 @@ export function LeadList({ hideFilters = false }: { hideFilters?: boolean }) {
         ))}
         {filtered.length === 0 ? (
           <p className="rounded-xl border border-dashed border-line bg-white p-8 text-center text-[1.08rem] text-ink-soft">
-            Nothing matches. I’ll clear a filter.
+            No matches. Clear a filter.
           </p>
         ) : null}
       </div>

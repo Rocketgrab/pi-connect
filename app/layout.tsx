@@ -12,9 +12,9 @@ const lexend = Lexend({
 });
 
 export const metadata: Metadata = {
-  title: "My Sydney PI notes",
+  title: "Sydney PI BD checklist",
   description:
-    "My working list of Sydney insurers, managing general agents and brokers for professional indemnity instructions.",
+    "Working list of Sydney insurers, managing general agents and brokers for professional indemnity instructions.",
 };
 
 export default function RootLayout({

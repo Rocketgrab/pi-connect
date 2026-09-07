@@ -1,19 +1,18 @@
-# My Sydney professional indemnity notes
+# Sydney professional indemnity BD checklist
 
-A small website of working BD notes for the Sydney professional indemnity
-market: insurers, managing general agents (MGAs), brokers, committees and events.
+Working list for the Sydney professional indemnity market: insurers, managing
+general agents (MGAs), brokers, committees and events.
 
-Use it on a phone in a taxi, on a laptop, or print the pack and email the PDF.
+Use it on a phone, on a laptop, or print the pack and email the PDF.
 
 ## Pages
 
-- **My plan** — strategy, top ten, and this week
-- **My leads** — names ranked by impact (0–100) with a Contacted checkbox (saved in the browser)
-- **Who I call** — switchboards, emails, committees, events
-- **Print pack** — the full plan, every lead card, and the full contact directory, ready to Print or Save as PDF
+- **Plan** — strategy, top ten, and this week
+- **Leads** — names ranked by impact (0–100) with a Contacted checkbox (saved in the browser)
+- **Contacts** — switchboards, emails, committees, events
+- **Print** — the full plan, every lead card, and the full contact directory, ready to Print or Save as PDF
 
-Industry acronyms are written as `PI (professional indemnity)` throughout. The
-copy is written in the first person, as personal working notes.
+Industry acronyms are written as `PI (professional indemnity)` throughout.
 
 ## Run locally
 

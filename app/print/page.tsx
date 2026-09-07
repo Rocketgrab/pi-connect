@@ -14,10 +14,9 @@ export default function PrintPage() {
           </p>
           <h1 className="mt-2 text-[2rem] font-medium leading-tight">Print pack</h1>
           <p className="mt-3 max-w-2xl text-[1.08rem] leading-relaxed">
-            This pack is everything I need in one place: my plan, every lead
-            with notes on how I’ll approach them, then committees, events and
-            switchboards. I’ll print it or save a PDF for the bag. Contacted
-            ticks from this browser will show on the list.
+            Full pack: plan, every lead with next steps, then committees,
+            events and switchboards. Print or save as PDF. Contacted ticks from
+            this browser show on the list.
           </p>
         </div>
         <button
