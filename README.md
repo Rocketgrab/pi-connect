@@ -35,7 +35,8 @@ Actions workflow deploys that folder to GitHub Pages on every push to `main`.
 4. The live URL will be `https://<your-github-username>.github.io/<repo-name>/`.
 
 Until that is live, send `public/sydney-pi-checklist.pdf`, or open `/print/` and
-choose **Download PDF**.
+choose **Download PDF**. After editing leads or plan copy, regenerate that file
+with `npm run generate-pdf`.
 
 ## Notes
 

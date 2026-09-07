@@ -115,3 +115,28 @@ body {
     accent-color: #000;
   }
 }
+
+/* On-screen pack: same light tokens as print, so the preview is readable
+   without relying on the browser PDF plugin. */
+html.light-document {
+  color-scheme: light;
+  --color-paper: #ffffff;
+  --color-paper-2: #f4f4f4;
+  --color-white: #ffffff;
+  --color-ink: #111111;
+  --color-ink-soft: #444444;
+  --color-line: #cccccc;
+  --color-navy: #0b3a66;
+  --color-navy-soft: #e6eef5;
+  --color-accent: #8a4b12;
+  --color-accent-soft: #f4eadc;
+  --color-green: #145c38;
+  --color-green-soft: #e6f3ec;
+  --color-gold: #6b5308;
+  --color-gold-soft: #f6efd6;
+}
+
+html.light-document body {
+  background: #fff;
+  color: #111;
+}
